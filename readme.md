@@ -2,4 +2,4 @@
 
 To view my notes of the program, go to
 
-https://ahjuggler.github.io/ppp-notes
+https://ajuggler.github.io/ppp-notes
