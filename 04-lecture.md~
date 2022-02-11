@@ -1,0 +1,65 @@
+---
+label: Monads Tutorial
+icon: #file
+author:
+  name: #Antonio Hernandez
+  email: #contacto@antoniohernandez.mx
+order: -6
+---
+
+# Monads tutorial
+
+As part of Lecture 4, Lars gave a pretty good introduction to the concept of
+*Monads*.
+
+## First examples
+
+Consider
+
+```bash
+run :: IO ()
+run = putStrLn "Hello, world!"
+```
+
+`run` is of type IO taking `()` (read as "unit") as argument.  Think of `run`
+as being of type IO *over* ().  What this means is that
+
+- it returns *unit* (basically *nothing of value*)
+- before returning *unit*, it executes an IO (*input-output*) operation.
+
+The input-ouput operation is a "side-effect".  Ironically, while this manner
+of speaking suggests that the IO operation is of lesser importance, it is via
+side effects that Haskell performs useful operations.
+
+In this case, `run` performs the side-effect of printing "Hello, world!" on
+the monitor.  Never the less, the result of the operation is `()`.
+
+It turns out that `IO` is our first example of *Monad*.  We will see later
+what this means.  The type signature of `putStrLn` is
+
+`putStrLn :: String -> IO ()`
+
+which means that putStrLn is a *function that takes a string and returns a
+Monad over unit*.
+
+Another function that returns an "IO over something" is `getLine`.  Its type
+signature is
+
+`getLine :: IO String`
+
+What `getLine` does,is it performs an IO operation and then returns a string.
+In fact, the IO operation it performs is to wait for the user to type
+something and then construct a string based on this typing.
+
+## Input-Output (IO)
+
+Asking the REPL for `:i IO` we see that IO is an Applicative, a Functor, a
+Monad, and other things.  Asking REPL `:i Functor` we find out that a functor
+is
+
+```haskell
+class Functor f where
+  fmap :: (a -> b) -> f a -> f b
+  (<$) :: a -> f b -> f a
+```
+

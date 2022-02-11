@@ -19,25 +19,19 @@ Make sure to have done the [first time setup](./first-time-setup.md).
 
 ## Pull updates
 
-1 - Change into the `plutus-apps` directory, then:
-
-    git pull
-
-Most likely step 1 is unnecessary, but just to make sure.  What is definitely necessary is the next step.
-
-2 - Change into the `plutus-pioneer-program` directory, then:
+1 - Change into the `plutus-pioneer-program` directory, then:
 
     git pull
 
 ## Get tag of this week's package
 
-3 - While in the `plutus-pioneer-program` directory:
+2 - While in the `plutus-pioneer-program` directory:
 
     cd ./code/week01
 
 Substitute `week01` with the corresponding week you are in.
 
-4 - View the Cabal project file.
+3 - View the Cabal project file.
 
     emacs cabal.project
 
@@ -50,7 +44,7 @@ Look for the following lines
 
 Copy the `tag` value [long string of letters and numbers]
 
-5 - Change back into the `plutus-apps` directory, then:
+4 - Change back into the `plutus-apps` directory, then:
 
     git checkout [tag]
 
@@ -58,7 +52,7 @@ where [tag] is the tag value on your clipboard.
 
 ## Start Nix Shell
 
-6 - While still in the `plutus-apps` directory:
+5 - While still in the `plutus-apps` directory:
 
     nix-shell
 
@@ -68,7 +62,7 @@ The first time it takes a while (20-30 minutes).
 
 ## Build this week's project
 
-7 - Inside the nix-shell,
+6 - Inside the nix-shell,
 
     cd ../plutus-pioneer-program/code/weeknn
 
@@ -80,7 +74,7 @@ The first time it may take a while.
 
 ## Haddock documentation
 
-8 - Inside a nix-shell, change back into the `plutus-apps` directory, then:
+7 - Inside a nix-shell, change back into the `plutus-apps` directory, then:
 
     build-and-serve-docs
 

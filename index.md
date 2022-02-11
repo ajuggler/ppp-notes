@@ -6,9 +6,11 @@ These are my notes from the 3rd cohort of the Plutus Pioneer Program.
 
 ## About
 
-The purpose of the Plutus pioneer program is to train and recruit developers in Plutus for the Cardano ecosystem.
+The purpose of the Plutus pioneer program is to train and recruit developers
+in Plutus for the Cardano ecosystem.
 
-The thrid cohort of the Plutus pioneer pogram is being taught by Lars Br&uuml;njes and started on the second week of January of 2022.
+The thrid cohort of the Plutus pioneer pogram is being taught by [Lars
+Br&uuml;njes](https://iohk.io/en/team/lars-brunjes) and started on the second week of January of 2022.
 
 ## Syllabus
 
