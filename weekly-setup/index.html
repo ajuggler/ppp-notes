@@ -25,11 +25,11 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.697437389610" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.697923832224" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.697437389610" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.697923832224" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.697437389610" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.697923832224" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -227,12 +227,7 @@ updated.  As a consequence, these steps should be executed weekly.</p>
         <span>Pull updates</span>
     </h2>
 </doc-anchor-target>
-<p>1 - Change into the <code v-pre>plutus-apps</code> directory, then:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">git pull</code></pre>
-</doc-codeblock></div>
-<p>Most likely step 1 is unnecessary, but just to make sure.  What is definitely necessary is the next step.</p>
-<p>2 - Change into the <code v-pre>plutus-pioneer-program</code> directory, then:</p>
+<p>1 - Change into the <code v-pre>plutus-pioneer-program</code> directory, then:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">git pull</code></pre>
 </doc-codeblock></div>
@@ -242,12 +237,12 @@ updated.  As a consequence, these steps should be executed weekly.</p>
         <span>Get tag of this week&#x27;s package</span>
     </h2>
 </doc-anchor-target>
-<p>3 - While in the <code v-pre>plutus-pioneer-program</code> directory:</p>
+<p>2 - While in the <code v-pre>plutus-pioneer-program</code> directory:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">cd ./code/week01</code></pre>
 </doc-codeblock></div>
 <p>Substitute <code v-pre>week01</code> with the corresponding week you are in.</p>
-<p>4 - View the Cabal project file.</p>
+<p>3 - View the Cabal project file.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">emacs cabal.project</code></pre>
 </doc-codeblock></div>
@@ -259,7 +254,7 @@ updated.  As a consequence, these steps should be executed weekly.</p>
   tag: [long string of letters and numbers]</code></pre>
 </doc-codeblock></div>
 <p>Copy the <code v-pre>tag</code> value [long string of letters and numbers]</p>
-<p>5 - Change back into the <code v-pre>plutus-apps</code> directory, then:</p>
+<p>4 - Change back into the <code v-pre>plutus-apps</code> directory, then:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">git checkout [tag]</code></pre>
 </doc-codeblock></div>
@@ -270,7 +265,7 @@ updated.  As a consequence, these steps should be executed weekly.</p>
         <span>Start Nix Shell</span>
     </h2>
 </doc-anchor-target>
-<p>6 - While still in the <code v-pre>plutus-apps</code> directory:</p>
+<p>5 - While still in the <code v-pre>plutus-apps</code> directory:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">nix-shell</code></pre>
 </doc-codeblock></div>
@@ -282,7 +277,7 @@ updated.  As a consequence, these steps should be executed weekly.</p>
         <span>Build this week&#x27;s project</span>
     </h2>
 </doc-anchor-target>
-<p>7 - Inside the nix-shell,</p>
+<p>6 - Inside the nix-shell,</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">cd ../plutus-pioneer-program/code/weeknn</code></pre>
 </doc-codeblock></div>
@@ -297,7 +292,7 @@ updated.  As a consequence, these steps should be executed weekly.</p>
         <span>Haddock documentation</span>
     </h2>
 </doc-anchor-target>
-<p>8 - Inside a nix-shell, change back into the <code v-pre>plutus-apps</code> directory, then:</p>
+<p>7 - Inside a nix-shell, change back into the <code v-pre>plutus-apps</code> directory, then:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">build-and-serve-docs</code></pre>
 </doc-codeblock></div>

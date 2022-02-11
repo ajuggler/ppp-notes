@@ -7,21 +7,21 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>EUTxO and English Auction</title>
-    <meta name="title" content="EUTxO and English Auction">
-    <meta name="description" content="Lecture Videos" />
+    <title>Monads tutorial</title>
+    <meta name="title" content="Monads tutorial">
+    <meta name="description" content="As part of Lecture 4, Lars gave a pretty good introduction to the concept of Monads." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ajuggler.github.io/ppp-notes/01-lecture/">
-    <meta property="og:title" content="EUTxO and English Auction">
-    <meta property="og:description" content="Lecture Videos">
+    <meta property="og:url" content="https://ajuggler.github.io/ppp-notes/04-lecture/">
+    <meta property="og:title" content="Monads tutorial">
+    <meta property="og:description" content="As part of Lecture 4, Lars gave a pretty good introduction to the concept of Monads.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ajuggler.github.io/ppp-notes/01-lecture/">
-    <meta property="twitter:title" content="EUTxO and English Auction">
-    <meta property="twitter:description" content="Lecture Videos">
+    <meta property="twitter:url" content="https://ajuggler.github.io/ppp-notes/04-lecture/">
+    <meta property="twitter:title" content="Monads tutorial">
+    <meta property="twitter:description" content="As part of Lecture 4, Lars gave a pretty good introduction to the concept of Monads.">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.697923832224" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.697923832224" defer></script>
+    <script id="prism-js" type="text/javascript" src="/ppp-notes/resources/js/prism.js?v=1.11.2.697923832224" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -183,85 +184,103 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="eutxo-and-english-auction" class="break-words">
+<doc-anchor-target id="monads-tutorial" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eutxo-and-english-auction">#</doc-anchor-trigger>
-        <span>EUTxO and English Auction</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#monads-tutorial">#</doc-anchor-trigger>
+        <span>Monads tutorial</span>
     </h1>
 </doc-anchor-target>
-<div class="-mt-3 mb-12 flex flex-wrap text-sm text-gray-400 dark:text-dark-350">
-    <div class="flex items-center">
-        <div>By</div>
-        <div class="ml-2 flex items-center">
-          <div class="flex-shrink-0 w-8 h-8 overflow-hidden rounded-full">
-            <a href="mailto:contacto@antoniohernandez.mx"><img class="object-cover" src="https://www.gravatar.com/avatar/1f3e2844a571cc6c87a7b756b5c11ac7?d=mp"/></a>
-          </div>
-          <div class="ml-1 whitespace-nowrap text-gray-500 dark:text-dark-350"><a href="mailto:contacto@antoniohernandez.mx">Antonio Hernandez</a></div>
-        </div>
-    </div>
-</div>
-
-<doc-anchor-target id="lecture-1">
+<p>As part of Lecture 4, Lars gave a pretty good introduction to the concept of
+<em>Monads</em>.</p>
+<doc-anchor-target id="first-examples">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#lecture-1">#</doc-anchor-trigger>
-        <span>Lecture 1</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#first-examples">#</doc-anchor-trigger>
+        <span>First examples</span>
     </h2>
 </doc-anchor-target>
-<p><a href="https://www.youtube.com/playlist?list=PLNEK_Ejlx3x2zxcfoVGARFExzOHwXFCCL">Lecture Videos <svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.5 2.25a.75.75 0 01.75-.75h5.5a.75.75 0 01.75.75v5.5a.75.75 0 01-1.5 0V4.06l-6.22 6.22a.75.75 0 11-1.06-1.06L19.94 3h-3.69a.75.75 0 01-.75-.75z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 010 1.5h-8.5a.25.25 0 00-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 00.25-.25v-8.5a.75.75 0 011.5 0v8.5a1.75 1.75 0 01-1.75 1.75H4.25a1.75 1.75 0 01-1.75-1.75V4.25z"/></g></g></svg></a></p>
-<p>Topics covered:</p>
-<ol>
-<li>Introduction</li>
-<li>The EUTXO Model</li>
-<li>Building the Example Code</li>
-<li>Auction Contract in the EUTxO Model</li>
-<li>Auction Contract on the Playground</li>
-<li>Homework</li>
-</ol>
-<p>I found part 1. quite motivating and part 2. very informative.  Part 3. contains the information discussed in my notes <a href="../first-time-setup/">First Time Setup</a> and <a href="../weekly-setup/">Weekly Setup</a>.</p>
-<doc-anchor-target id="running-the-playground">
+<p>Consider</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-haskell"><code v-pre class="language-haskell">run :: IO ()
+run = putStrLn &quot;Hello, world!&quot;</code></pre>
+</doc-codeblock></div>
+<p><code v-pre>run</code> is of type IO taking <code v-pre>()</code> (read as &quot;unit&quot;) as argument.  Think of <code v-pre>run</code>
+as being of type IO <em>over</em> ().  What this means is that</p>
+<ul>
+<li>it returns <em>unit</em> (basically <em>nothing of value</em>)</li>
+<li>before returning <em>unit</em>, it executes an IO (<em>input-output</em>) operation.</li>
+</ul>
+<p>The input-ouput operation is a &quot;side-effect&quot;.  Ironically, while this manner
+of speaking suggests that the IO operation is of lesser importance, it is via
+side effects that Haskell performs useful operations.</p>
+<p>In this case, <code v-pre>run</code> performs the side-effect of printing &quot;Hello, world!&quot; on
+the monitor.  Never the less, the result of the operation is <code v-pre>()</code>.</p>
+<p>It turns out that <code v-pre>IO</code> is our first example of <em>Monad</em>.  We will see later
+what this means.  The type signature of <code v-pre>putStrLn</code> is</p>
+<p><code v-pre>putStrLn :: String -&gt; IO ()</code></p>
+<p>which means that putStrLn is a <em>function that takes a string and returns a
+Monad over unit</em>.</p>
+<p>Another function that returns an &quot;IO over something&quot; is <code v-pre>getLine</code>.  Its type
+signature is</p>
+<p><code v-pre>getLine :: IO String</code></p>
+<p>What <code v-pre>getLine</code> does,is it performs an IO operation and then returns a string.
+In fact, the IO operation it performs is to wait for the user to type
+something and then construct a string based on this typing.</p>
+<doc-anchor-target id="input-output-io">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#running-the-playground">#</doc-anchor-trigger>
-        <span>Running the Playground</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#input-output-io">#</doc-anchor-trigger>
+        <span>Input-Output (IO)</span>
     </h2>
 </doc-anchor-target>
-<p>Part 5 of lecture 1 provided the steps for running the Playground.  These steps apply to every week.</p>
-<p>1 - Start playground server</p>
-<p>Inside a nix-shell, change to the <code v-pre>plutus-apps</code> directory, then:</p>
+<p>Asking the REPL for <code v-pre>:i IO</code> we see that IO is an Applicative, a Functor, a
+Monad, and other things.  Asking REPL what a functor is,</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cd ./plutus-playground-client</code></pre>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude&gt; :i Functor
+type Functor :: (* -&gt; *) -&gt; Constraint
+class Functor f where
+  fmap :: (a -&gt; b) -&gt; f a -&gt; f b</code></pre>
 </doc-codeblock></div>
-<p>Next, start the server:</p>
+<p>Here <code v-pre>f</code> represents some structure (could be a Monad, but not necessarily) and
+<code v-pre>f a</code>, which I will read &quot;f over a&quot;, represents a structure <code v-pre>f</code> made out of
+expressions of type <code v-pre>a</code>.  The structure <code v-pre>f</code> is a functor if has instances of
+two laws, <code v-pre>fmap</code> and <code v-pre>(&lt;$)</code>. <code v-pre>fmap</code> is a generalization of <code v-pre>map</code>, but now
+works on more general structures than lists:  <code v-pre>fmap</code> applies the function <code v-pre>(a -&gt; b)</code> to every element inside the structure <code v-pre>f</code>.</p>
+<p>To illustrate, let us compose <code v-pre>map</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">plutus-playground-server</code></pre>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude Data.Char&gt; :t map
+map :: (a -&gt; b) -&gt; [a] -&gt; [b]</code></pre>
 </doc-codeblock></div>
-<p>2 - Start the playground client</p>
-<p>Inside another nix-shell, change back into the <code v-pre>plutus-apps/plutus-playground-client</code> directory, then:</p>
+<p>with <code v-pre>toUpper</code>,</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">npm start</code></pre>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude&gt; import Data.Char
+Prelude Data.Char&gt; :t toUpper
+toUpper :: Char -&gt; Char
+Prelude Data.Char&gt; toUpper 'q'
+'Q'</code></pre>
 </doc-codeblock></div>
-<p>3 - Open the playground</p>
-<p>Direct your browser to <code v-pre>https://localhost:8009</code></p>
-<doc-anchor-target id="homework">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#homework">#</doc-anchor-trigger>
-        <span>Homework</span>
-    </h2>
-</doc-anchor-target>
-<p>This week&#x27;s homework only asked to install the Plutus environment and run the example on the playground.</p>
-<doc-anchor-target id="playground">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#playground">#</doc-anchor-trigger>
-        <span>Playground</span>
-    </h3>
-</doc-anchor-target>
-<p>To run the playground:</p>
-<ol>
-<li>Copy the code into the playground&#x27;s editor.</li>
-<li>Press the <em>Compile</em> button and verify compilation is successful.</li>
-<li>Press the <em>Simulate</em> button.</li>
-<li>Build a scenario initializing wallets and constructing actions.</li>
-<li>Press the <em>Evaluate</em> button.</li>
-</ol>
+<p>to define the function <code v-pre>map toUpper</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude Data.Char&gt; :t map toUpper
+map toUpper :: [Char] -&gt; [Char]</code></pre>
+</doc-codeblock></div>
+<p>We now construct an example where the functor <code v-pre>f</code> is <code v-pre>getLine</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude Data.Char&gt; :t getLine
+getLine :: IO String</code></pre>
+</doc-codeblock></div>
+<p>so the type signature of <code v-pre>fmap (a -&gt; b) -&gt; f a</code> is</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude Data.Char&gt; :t fmap (map toUpper) getLine
+fmap (map toUpper) getLine :: IO [Char]</code></pre>
+</doc-codeblock></div>
+<p>That is to say, <code v-pre>f b</code> is <code v-pre>IO String</code>.</p>
+<p>In practical terms, <code v-pre>fmap (map toUpper)</code> takes the string that the IO
+opperation performed by <code v-pre>getLine</code> gets from the user at the console,
+and returns the whole thing as if the user had typed her input in all caps.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-shell-session"><code v-pre class="language-shell-session">Prelude Data.Char&gt; fmap (map toUpper) getLine
+Haskell is nice
+&quot;HASKELL IS NICE&quot;</code></pre>
+</doc-codeblock></div>
 
 
 
@@ -273,23 +292,16 @@
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/weekly-setup/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/03-lecture/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Weekly Setup</span>
+                <span class="block mt-1">Lecture 3</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/02-lecture/">
-            <span>
-                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Lecture 2</span>
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        </a>
     </div>
 </nav>
 
@@ -333,6 +345,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Lecture 1", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Monads Tutorial", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>

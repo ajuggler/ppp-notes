@@ -9,28 +9,27 @@
     <!-- Primary Meta Tags -->
     <title>First Time Setup</title>
     <meta name="title" content="First Time Setup">
-    <meta name="description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running MacOS Catalina." />
+    <meta name="description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ajuggler.github.io/ppp-notes/first-time-setup/">
     <meta property="og:title" content="First Time Setup">
-    <meta property="og:description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running MacOS Catalina.">
+    <meta property="og:description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ajuggler.github.io/ppp-notes/first-time-setup/">
     <meta property="twitter:title" content="First Time Setup">
-    <meta property="twitter:description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running MacOS Catalina.">
+    <meta property="twitter:description" content="The following is the step-by-step procedure that I followed for the inital setup on a MacBook running">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.697437389610" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.697923832224" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.697437389610" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.697923832224" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.697437389610" defer></script>
-    <script id="prism-js" type="text/javascript" src="/ppp-notes/resources/js/prism.js?v=1.11.2.697437389610" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.697923832224" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -202,7 +201,8 @@
     </div>
 </div>
 
-<p>The following is the step-by-step procedure that I followed for the inital setup on a MacBook running MacOS Catalina.</p>
+<p>The following is the step-by-step procedure that I followed for the inital
+setup on a MacBook running <em>MacOS Catalina</em>.</p>
 <doc-anchor-target id="nix-setup">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#nix-setup">#</doc-anchor-trigger>
@@ -227,7 +227,7 @@ trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
 experimental-features = nix-command</code></pre>
 </doc-codeblock></div>
 <p>The first two lines tells Nix to use the binary cache maintained by IOHK. Omitting those lines will result in extending the building time by many hours.</p>
-<p>The last line tells Nix to enable the <code v-pre>nix</code> command (an experimental
+<p>The last line tells Nix to enable <code v-pre>nix-command</code> (an experimental
 feature disabled by default).</p>
 <p>4 - Restart your computer</p>
 <doc-anchor-target id="clone-the-plutus-repositories">
@@ -250,40 +250,6 @@ git clone https://github.com/input-output-hk/plutus-pioneer-program.git</code></
 <pre class="language-none"><code v-pre class="language-none">nix build -f default.nix plutus.haskell.packages.plutus-core.components.library</code></pre>
 </doc-codeblock></div>
 <p><strong>Note:</strong> Cloning the first repo in step 5 and building in step 6 might be unnecessary, since the weekly setup starts with building the other two repos.  Nevertheless, this is how I did it and it worked.</p>
-<p>7 - Start a Nix Shell  [erase this]</p>
-<p>Change into the <code v-pre>plutus-apps</code> directory, then:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">nix-shell</code></pre>
-</doc-codeblock></div>
-<p>The first time it takes a while (20-30 minutes).</p>
-<p>8 - [erase, this is repetitive]</p>
-<p>Clone the Plutus Pioneer Program repository to your local machine.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">git clone https://github.com/input-output-hk/plutus-pioneer-program</code></pre>
-</doc-codeblock></div>
-<p>Clone the Plutus Apps repository. This will create a new directory called
-<code v-pre>plutus-apps</code> under your current working directory.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">git clone https://github.com/input-output-hk/plutus-apps</code></pre>
-</doc-codeblock></div>
-<p>Change into the <code v-pre>plutus-apps</code> directory</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">cd plutus-apps</code></pre>
-</doc-codeblock></div>
-<p>It will take around 5-10 minutes.</p>
-<p>Start a Nix Shell</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">nix-shell</code></pre>
-</doc-codeblock></div>
-<p>Starting the Nix Shell puts you in a reproducible environment defined by IOHK.
-In order to do this, it needs to have all the tools and packages defined by the
-Nix configuration. The first time you run this, it will take a around 20-30
-minutes to download and build the environment. Make sure you see it downloading
-files from hydra.iohk.io. If you don&#x27;t, that means the binary cache was not set
-up correctly. Go back and make sure you follow all the previous steps correctly.</p>
-<p>Now your development environment is set up and you&#x27;re ready to procede with the
-program. It is important to run this command inside the <code v-pre>plutus-apps</code> directory
-every time you want to work with the Plutus Application Framework.</p>
 
 
 
@@ -355,6 +321,6 @@ every time you want to work with the Plutus Application Framework.</p>
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "First Time Setup", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "First Time Setup", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
