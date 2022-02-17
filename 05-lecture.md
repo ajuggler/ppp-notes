@@ -90,14 +90,14 @@ deadline not too far in the future.
 2. Write a minting policy for an NFT where the TokenName is an empty
 ByteString.
 
-### Solution to homework 1
+### Solution to HW 1
 
 Probably the main challenge was to create a minting policy with two
 parameters.  My solution can be found in file
 [mySolution1.hs](https://github.com/ajuggler/ppp-solutions/tree/main/lecture05/mySolution1.hs)
 .
 
-### Solution to homework 2
+### Solution to HW 2
 
 The only difficulty that I found was how to represent the empty ByteString.
 It is expressed using the data constructor `TokenName`, so that the empty
