@@ -5,9 +5,11 @@ branding:
   title: Plutus Pioneer Program 3rd Cohort Notes
   label: # Notes
 links:
-- text: Homepage
-  link: https://antoniohernandez.mx
+- text: Home
+  link: https://ajuggler.github.io/ppp-notes/
 - text: Github
   link: https://github.com/ajuggler
+- text: Personal homepage
+  link: https://antoniohernandez.mx
 footer:
   # copyright: "&copy; Copyright {{ year }}. All rights reserved."

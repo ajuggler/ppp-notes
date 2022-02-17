@@ -33,7 +33,7 @@ Substitute `week01` with the corresponding week you are in.
 
 3 - View the Cabal project file.
 
-    emacs cabal.project
+    less cabal.project
 
 Look for the following lines
 
