@@ -7,20 +7,20 @@
     <meta name="turbo-cache-control" content="no-cache">
 
     <!-- Primary Meta Tags -->
-    <title>EUTxO and English Auction</title>
-    <meta name="title" content="EUTxO and English Auction">
+    <title>Lecture 5</title>
+    <meta name="title" content="Lecture 5">
     <meta name="description" content="Lecture Videos" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ajuggler.github.io/ppp-notes/01-lecture/">
-    <meta property="og:title" content="EUTxO and English Auction">
+    <meta property="og:url" content="https://ajuggler.github.io/ppp-notes/05-lecture/">
+    <meta property="og:title" content="Lecture 5">
     <meta property="og:description" content="Lecture Videos">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ajuggler.github.io/ppp-notes/01-lecture/">
-    <meta property="twitter:title" content="EUTxO and English Auction">
+    <meta property="twitter:url" content="https://ajuggler.github.io/ppp-notes/05-lecture/">
+    <meta property="twitter:title" content="Lecture 5">
     <meta property="twitter:description" content="Lecture Videos">
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.698380625743" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.698380625743" defer></script>
+    <script id="prism-js" type="text/javascript" src="/ppp-notes/resources/js/prism.js?v=1.11.2.698380625743" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -189,10 +190,10 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="eutxo-and-english-auction" class="break-words">
+<doc-anchor-target id="section" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eutxo-and-english-auction">#</doc-anchor-trigger>
-        <span>EUTxO and English Auction</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#section">#</doc-anchor-trigger>
+        <span></span>
     </h1>
 </doc-anchor-target>
 <div class="-mt-3 mb-12 flex flex-wrap text-sm text-gray-400 dark:text-dark-350">
@@ -207,67 +208,127 @@
     </div>
 </div>
 
-<doc-anchor-target id="lecture-1">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#lecture-1">#</doc-anchor-trigger>
-        <span>Lecture 1</span>
-    </h2>
-</doc-anchor-target>
-<p><a href="https://www.youtube.com/playlist?list=PLNEK_Ejlx3x2zxcfoVGARFExzOHwXFCCL">Lecture Videos <svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.5 2.25a.75.75 0 01.75-.75h5.5a.75.75 0 01.75.75v5.5a.75.75 0 01-1.5 0V4.06l-6.22 6.22a.75.75 0 11-1.06-1.06L19.94 3h-3.69a.75.75 0 01-.75-.75z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 010 1.5h-8.5a.25.25 0 00-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 00.25-.25v-8.5a.75.75 0 011.5 0v8.5a1.75 1.75 0 01-1.75 1.75H4.25a1.75 1.75 0 01-1.75-1.75V4.25z"/></g></g></svg></a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLNEK_Ejlx3x0G8V8CDBnRDZ86POVsrfzw">Lecture Videos <svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M15.5 2.25a.75.75 0 01.75-.75h5.5a.75.75 0 01.75.75v5.5a.75.75 0 01-1.5 0V4.06l-6.22 6.22a.75.75 0 11-1.06-1.06L19.94 3h-3.69a.75.75 0 01-.75-.75z"/><path d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 010 1.5h-8.5a.25.25 0 00-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 00.25-.25v-8.5a.75.75 0 011.5 0v8.5a1.75 1.75 0 01-1.75 1.75H4.25a1.75 1.75 0 01-1.75-1.75V4.25z"/></g></g></svg></a></p>
 <p>Topics covered:</p>
 <ol>
 <li>Introduction</li>
-<li>The EUTXO Model</li>
-<li>Building the Example Code</li>
-<li>Auction Contract in the EUTxO Model</li>
-<li>Auction Contract on the Playground</li>
+<li>Values</li>
+<li>A simple minting policy</li>
+<li>A more realistic minting policy</li>
+<li>NFT&#x27;s</li>
 <li>Homework</li>
 </ol>
-<p>I found part 1. quite motivating and part 2. very informative.  Part 3. contains the information discussed in my notes <a href="../first-time-setup/">First Time Setup</a> and <a href="../weekly-setup/">Weekly Setup</a>.</p>
-<doc-anchor-target id="running-the-playground">
+<doc-anchor-target id="native-tokens-and-value">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#running-the-playground">#</doc-anchor-trigger>
-        <span>Running the Playground</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#native-tokens-and-value">#</doc-anchor-trigger>
+        <span>Native tokens and value</span>
     </h2>
 </doc-anchor-target>
-<p>Part 5 of lecture 1 provided the steps for running the Playground.  These steps apply to every week.</p>
-<p>1 - Start playground server</p>
-<p>Inside a nix-shell, change to the <code v-pre>plutus-apps</code> directory, then:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cd ./plutus-playground-client</code></pre>
-</doc-codeblock></div>
-<p>Next, start the server:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">plutus-playground-server</code></pre>
-</doc-codeblock></div>
-<p>2 - Start the playground client</p>
-<p>Inside another nix-shell, change back into the <code v-pre>plutus-apps/plutus-playground-client</code> directory, then:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">npm start</code></pre>
-</doc-codeblock></div>
-<p>3 - Open the playground</p>
-<p>Direct your browser to <code v-pre>https://localhost:8009</code></p>
-<doc-anchor-target id="homework">
+<p>The topic of this lecture is to explain how native tokens can be minted and
+burned in Cardano.</p>
+<p>Recall that each UTxO has an address and a value (in adition of a Datum).  In
+Plutus, the <code v-pre>Value</code> is defined as a map from <code v-pre>CurrencySymbol</code>s to maps from
+<code v-pre>TokenName</code>s to <code v-pre>Integer</code>s.</p>
+<p>The <code v-pre>Value</code> module is defined in <code v-pre>Plutus.V1.Ledger.Value</code>.</p>
+<p>Each native token (includying ADA) is identified by a <em>currency symbol</em> and a
+<em>token name</em>.  Both are ByteStrings.</p>
+<p>A <em>value</em> tells how many units are contained in each asset class.  The latter
+is identified by a pair of currency symbol and token name.</p>
+<doc-anchor-target id="minting-policies">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#homework">#</doc-anchor-trigger>
-        <span>Homework</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#minting-policies">#</doc-anchor-trigger>
+        <span>Minting policies</span>
     </h2>
 </doc-anchor-target>
-<p>This week&#x27;s homework only asked to install the Plutus environment and run the example on the playground.</p>
-<doc-anchor-target id="playground">
+<p>Recall that, in general, the validation of a script requires a <em>Datum</em>, a
+<em>Redeemer</em> and a <em>Context</em>.  For a <em>minting policy</em>, the Datum is not
+required.</p>
+<p>The <code v-pre>ScriptContext</code> contains the <code v-pre>TxInfo</code> and the <code v-pre>ScriptPurpose</code>.</p>
+<p>The <code v-pre>ScriptContext</code> is defined in <code v-pre>Plutus.V1.Ledger.Contexts</code>.</p>
+<p>A minting policy is triggered if the <code v-pre>txInfoMint</code> field of the <code v-pre>TxInfo</code> has a
+non-zero <em>value</em> (a &quot;bag&quot; of different asset classes, each identified by a
+currency symbol and a token name), specified in the field <code v-pre>txInfoMint</code>.</p>
+<p>For each <em>currency symbol</em> in the value specified by <code v-pre>txInfoMint</code> a
+corresponding minting policy script is run.  Each currency symbol is the hash
+of one such minting policy script.</p>
+<p>A minting policy script only has two inputs: a <em>redeemer</em> and a <em>context</em> (no
+datum).  Recall that the transaction provides the redeemer.</p>
+<doc-anchor-target id="a-parametrized-minting-policy">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#a-parametrized-minting-policy">#</doc-anchor-trigger>
+        <span>A parametrized minting policy</span>
+    </h2>
+</doc-anchor-target>
+<p>In part 4, Lars discusses a minting policy that can only be triggered by a
+specified public key.  This is achieved by parametrizing a minting policy so
+that it depends on a value of type <code v-pre>PaymentPubKeyHash</code>.  The corresponding
+policy in PlutusCore takes an argument that has to be lifted.</p>
+<doc-anchor-target id="nfts">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nfts">#</doc-anchor-trigger>
+        <span>NFT&#x27;s</span>
+    </h2>
+</doc-anchor-target>
+<p>NFT&#x27;s are discussed in part 5.  An NFT is a token that can only exist once.
+The trick to ensure uniqueness of the token is to include the ID of the UTxO
+as a parameter in the minting policy.  (There can not be two different UTxO&#x27;s
+with the same ID; Lars gives an inductive argument proving this claim based on
+the fact that <em>fees</em> are always present.)</p>
+<p>Notice that it is not enough to constrain a transaction to only mint once,
+since nothing prevents having many transactions with such a constraint.</p>
+<doc-anchor-target id="homework-spoiler-alert">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#homework-spoiler-alert">#</doc-anchor-trigger>
+        <span>Homework (<em>spoiler alert</em>)</span>
+    </h2>
+</doc-anchor-target>
+<p>Two problems:</p>
+<ol>
+<li><p>Write a contract with a Shelly-era solution for creating an NFT, based on a
+deadline not too far in the future.</p>
+</li>
+<li><p>Write a minting policy for an NFT where the TokenName is an empty
+ByteString.</p>
+</li>
+</ol>
+<doc-anchor-target id="solution-to-homework-1">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#playground">#</doc-anchor-trigger>
-        <span>Playground</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#solution-to-homework-1">#</doc-anchor-trigger>
+        <span>Solution to homework 1</span>
     </h3>
 </doc-anchor-target>
-<p>To run the playground:</p>
-<ol>
-<li>Copy the code into the playground&#x27;s editor.</li>
-<li>Press the <em>Compile</em> button and verify compilation is successful.</li>
-<li>Press the <em>Simulate</em> button.</li>
-<li>Build a scenario initializing wallets and constructing actions.</li>
-<li>Press the <em>Evaluate</em> button.</li>
-</ol>
+<p>Probably the main challenge was to create a minting policy with two
+parameters.  My solution can be found in file
+<a href="https://github.com/ajuggler/ppp-solutions/tree/main/lecture05/mySolution1.hs">mySolution1.hs</a>
+.</p>
+<doc-anchor-target id="solution-to-homework-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#solution-to-homework-2">#</doc-anchor-trigger>
+        <span>Solution to homework 2</span>
+    </h3>
+</doc-anchor-target>
+<p>The only difficulty that I found was how to represent the empty ByteString.
+It is expressed using the data constructor <code v-pre>TokenName</code>, so that the empty
+ByteString is represented by <code v-pre>TokenName emptyByteString</code>.</p>
+<p>Something that puzzles me is that apparently it is sufficient to put the empty
+ByteString constraint only on the off-chain part of the code.  To be precise, I
+found that my solution still works if I sustitute the code</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-haskell"><code v-pre class="language-haskell">    checkMintedAmount :: Bool
+    checkMintedAmount = case flattenValue (txInfoMint info) of
+      [(_, tn, amt)] -&gt; tn == (TokenName emptyByteString) &amp;&amp; amt == 1
+      _              -&gt; False</code></pre>
+</doc-codeblock></div>
+<p>with the alternative</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-haskell"><code v-pre class="language-haskell">    checkMintedAmount :: Bool
+    checkMintedAmount = case flattenValue (txInfoMint info) of
+      [(_, _, amt)] -&gt; amt == 1
+      _             -&gt; False</code></pre>
+</doc-codeblock></div>
+<p>In any case, my solution can be found in file
+<a href="https://github.com/ajuggler/ppp-solutions/tree/main/lecture05/mySolution2.hs">mySolution2.hs</a>
+.</p>
 
 
 
@@ -279,23 +340,16 @@
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/monads-tutorial/">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/04-lecture/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Monads Tutorial</span>
+                <span class="block mt-1">Lecture 4</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/ppp-notes/02-lecture/">
-            <span>
-                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Lecture 2</span>
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        </a>
     </div>
 </nav>
 
@@ -339,6 +393,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Lecture 1", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Lecture 5", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
