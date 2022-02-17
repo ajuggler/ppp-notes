@@ -23,8 +23,8 @@ Topics covered:
 
 ## Native tokens and value
 
-The topic of this lecture is to explain how native tokens can be minted and
-burned in Cardano.
+The topic of this lecture is how native tokens can be minted and burned in
+Cardano.
 
 Recall that each UTxO has an address and a value (in adition of a Datum).  In
 Plutus, the `Value` is defined as a map from `CurrencySymbol`s to maps from
