@@ -1,6 +1,6 @@
 ---
 label: Lecture 3
-icon: #file
+icon: file
 author:
   name: Antonio Hernandez
   email: contacto@antoniohernandez.mx
