@@ -7,7 +7,7 @@ author:
 order: -8
 ---
 
-# 
+# Minting Policy
 
 [Lecture Videos :icon-link-external:](https://www.youtube.com/playlist?list=PLNEK_Ejlx3x0G8V8CDBnRDZ86POVsrfzw)
 

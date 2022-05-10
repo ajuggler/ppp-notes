@@ -1,0 +1,24 @@
+---
+label: Lecture 7
+icon: #file
+author:
+  name: Antonio Hernandez
+  email: contacto@antoniohernandez.mx
+order: -10
+---
+
+# title
+
+[Lecture Videos :icon-link-external:](https://youtube.com/playlist?list=PLNEK_Ejlx3x2sBWXHdFBRgkzPF6N-1LVi)
+
+Topics covered:
+
+1. Introduction
+2. The Minting Policy
+3. Minting with the CLI
+4. Deployment Scenarios
+5. The Contracts
+6. Minting with the PAB
+7. Summary
+
+
