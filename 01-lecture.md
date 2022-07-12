@@ -5,8 +5,7 @@ contacto@antoniohernandez.mx order: -4 ---
 
 ## Lecture 1
 
-[Lecture Videos
-:icon-link-external:](https://www.youtube.com/playlist?list=PLNEK_Ejlx3x2zxcfoVGARFExzOHwXFCCL)
+[Lecture Videos :icon-link-external:](https://www.youtube.com/playlist?list=PLNEK_Ejlx3x2nLM4fAck2JS6KhFQlXq2N)
 
 Topics covered:
 
