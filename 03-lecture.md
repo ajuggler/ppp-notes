@@ -38,7 +38,7 @@ developers.cardano.org](https://developers.cardano.org/docs/get-started/installi
 ### XCode
 
 1 - [Downloaded](https://developer.apple.com/xcode/) Xcode and the Xcode
-Comand Line Tools.  Since my computer runs MacOS Catalina, I downloaded
+Command Line Tools.  Since my computer runs MacOS Catalina, I downloaded
 version 12.4.  [Homebrew](https://brew.sh/) needs to also be installed.
 
 ### Installing Homebrew packages
@@ -189,4 +189,4 @@ After the symbolic link was created, I started the Cardano node with
 ./start-node-testnet.sh
 ```
 
-My MacBook took several ours to sync the testnet.
+My MacBook took several hours to sync the testnet.
