@@ -25,11 +25,11 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.710912757502" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.710999949023" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.710912757502" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.710999949023" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.710912757502" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.710999949023" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -216,6 +216,162 @@
 <li>The Contract Monad</li>
 <li>Homework &amp; Summary</li>
 </ol>
+<doc-anchor-target id="running-emulatortrace">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#running-emulatortrace">#</doc-anchor-trigger>
+        <span>Running <code v-pre>EmulatorTrace</code></span>
+    </h2>
+</doc-anchor-target>
+<p>Note that <code v-pre>EmulatorConfig</code> implements an instance of the <code v-pre>Default</code> type class:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; import Plutus.Trace.Emulator
+&gt; import Data.Default
+&gt; 
+&gt; :i EmulatorConfig
+type EmulatorConfig :: *
+data EmulatorConfig
+  = EmulatorConfig {_initialChainState :: Wallet.Emulator.Stream.InitialChainState,
+		    _slotConfig :: Ledger.TimeSlot.SlotConfig,
+		    _feeConfig :: Ledger.Fee.FeeConfig}
+	-- Defined in ‘Wallet.Emulator.Stream’
+instance Eq EmulatorConfig -- Defined in ‘Wallet.Emulator.Stream’
+instance Show EmulatorConfig -- Defined in ‘Wallet.Emulator.Stream’
+instance Default EmulatorConfig
+  -- Defined in ‘Wallet.Emulator.Stream’</code></pre>
+</doc-codeblock></div>
+<p>so that we can call <em>defaults</em> of <code v-pre>EmulatorTrace</code> as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; def :: EmulatorConfig</code></pre>
+</doc-codeblock></div>
+<p>with output:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">EmulatorConfig {_initialChainState = Left (fromList [(Wallet 1bc5f27d7b4e20083977418e839e429d00cc87f3,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 3a4778247ad35117d7c3150d194da389f3148f4a,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 4e76ce6b3f12c6cc5a6a2545f6770d2bcb360648,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 5f5a4f5f465580a5500b9a9cede7f4e014a37ea8,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 7ce812d7a4770bbf58004067665c3a48f28ddd58,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 872cb83b5ee40eb23bfdab1772660c822a48d491,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet bdf8dbca0cadeb365480c6ec29ec746a2b85274f,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet c19599f22890ced15c6a87222302109e83b78bdf,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet c30efb78b4e272685c1f9f0c93787fd4b6743154,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet d3eddd0d37989746b029a0e050386bc425363901,Value (Map [(,Map [(&quot;&quot;,100000000)])]))]), _slotConfig = SlotConfig {scSlotLength = 1000, scSlotZeroTime = POSIXTime {getPOSIXTime = 1596059091000}}, _feeConfig = FeeConfig {fcConstantFee = Lovelace {getLovelace = 10}, fcScriptsFeeFactor = 1.0}}</code></pre>
+</doc-codeblock></div>
+<p>which means that by default we have 10 wallets and other defaults having to do with &#x27;SlotConfig&#x27;, time and fees.</p>
+<p>Since the <code v-pre>EmulatorTrace</code> is a monad, the simplest trace that we can run is tha one that returns <em>unit</em>.  We can try it using <code v-pre>runEmulatorTrace</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; :t runEmulatorTrace
+runEmulatorTrace
+  :: EmulatorConfig
+     -&gt; EmulatorTrace ()
+     -&gt; ([Wallet.Emulator.MultiAgent.EmulatorEvent], Maybe EmulatorErr,
+	 Wallet.Emulator.MultiAgent.EmulatorState)</code></pre>
+</doc-codeblock></div>
+<p>so we have to provide an <code v-pre>EmulatorConfig</code> and a contract.  We provide defaults and the simplest trace consisting of <code v-pre>return ()</code> :</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; writeFile &quot;out.txt&quot; $ show $ runEmulatorTrace def $ return ()</code></pre>
+</doc-codeblock></div>
+<p>but this gives an unwieldly large result:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; :! ls -lah out.txt
+-rw-r--r-- 1 antonio staff 439K Jul 12 18:51 out.txt</code></pre>
+</doc-codeblock></div>
+<p>so even an emulator that doesn&#x27;t do anything yields a large number of emulation events.  Therefore <code v-pre>runEmulatorTrace</code> is not a feasible way to try out contracts.</p>
+<p>Instead we will use <code v-pre>runEmulatorTraceIO</code> :</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; :t runEmulatorTraceIO
+runEmulatorTraceIO :: EmulatorTrace () -&gt; IO ()</code></pre>
+</doc-codeblock></div>
+<p>which does not need to be provided an emulator configuration (it takes the defaults) and maps the <code v-pre>EmulatorTrace</code> monad to the <code v-pre>IO</code> monad.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; runEmulatorTraceIO $ return ()
+Slot 00000: TxnValidate 98d5fbcefe21113b3f0390c1441e075b8a870cc5a8fa2a56dcde1d8247e41715
+Slot 00000: SlotAdd Slot 1
+Slot 00001: W1bc5f27: InsertionSuccess: New tip is Tip(slot= Slot 1, blockId= BlockId(1033bd6bfb9d90108db08880ad32a58980ae8dafd14c6217d7f83db6fae6f70c), blockNo= 0). UTxO state was added to the end.                                                                                                                                
+&lt;similar lines of output omitted&gt;
+
+Slot 00002: Wd3eddd0: InsertionSuccess: New tip is Tip(slot= Slot 2, blockId= BlockId(76be8b528d0075f7aae98d6fa57a6d3c83ae480a8469e668d7b0af968995ac71), blockNo= 1). UTxO state was added to the end.
+Final balances
+Wallet 1bc5f27d7b4e20083977418e839e429d00cc87f3: 
+    {, &quot;&quot;}: 100000000
+Wallet 3a4778247ad35117d7c3150d194da389f3148f4a: 
+    {, &quot;&quot;}: 100000000
+Wallet 4e76ce6b3f12c6cc5a6a2545f6770d2bcb360648: 
+    {, &quot;&quot;}: 100000000
+Wallet 5f5a4f5f465580a5500b9a9cede7f4e014a37ea8: 
+    {, &quot;&quot;}: 100000000
+Wallet 7ce812d7a4770bbf58004067665c3a48f28ddd58: 
+    {, &quot;&quot;}: 100000000
+Wallet 872cb83b5ee40eb23bfdab1772660c822a48d491: 
+    {, &quot;&quot;}: 100000000
+Wallet bdf8dbca0cadeb365480c6ec29ec746a2b85274f: 
+    {, &quot;&quot;}: 100000000
+Wallet c19599f22890ced15c6a87222302109e83b78bdf: 
+    {, &quot;&quot;}: 100000000
+Wallet c30efb78b4e272685c1f9f0c93787fd4b6743154: 
+    {, &quot;&quot;}: 100000000
+Wallet d3eddd0d37989746b029a0e050386bc425363901: 
+    {, &quot;&quot;}: 100000000</code></pre>
+</doc-codeblock></div>
+<p>which gives information about the various blocks created at slots 00001 and 00002 and the final balances of the ten wallets.</p>
+<p>If we need to specify an Emulator configuration we can use the related command <code v-pre>runEmulatorTraceIO'</code> (with a prime at the end).</p>
+<doc-anchor-target id="simulation-of-vesting-contract">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#simulation-of-vesting-contract">#</doc-anchor-trigger>
+        <span>Simulation of Vesting contract</span>
+    </h3>
+</doc-anchor-target>
+<p>We run the Vesting contract discussed in Lesson 3 by first activating the endpoints of mentioned contract.  We assign handles to such endpoints:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">myTrace :: EmulatorTrace ()
+myTrace = do
+    h1 &lt;- activateContractWallet (knownWallet 1) endpoints
+    h2 &lt;- activateContractWallet (knownWallet 2) endpoints</code></pre>
+</doc-codeblock></div>
+<p>We call the first handle as the &quot;give&quot; endpoint and give it corresponding parameters:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">callEndpoint @&quot;give&quot; h1 $ GiveParams
+    { gpBeneficiary = mockWalletPaymentPubKeyHash $ knownWallet 2
+    , gpDeadline    = slotToBeginPOSIXTime def 20
+    , gpAmount      = 10000000
+    }</code></pre>
+</doc-codeblock></div>
+<p>After waiting for slot 20, we call the second handle as the &quot;grab&quot; endpoint, and as such we do not need to pass any meaningful parameters so we pass unit:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">callEndpoint @&quot;grab&quot; h2 ()</code></pre>
+</doc-codeblock></div>
+<p>We wait for two more slots and log the final slot reached:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">s &lt;- waitNSlots 2
+Extras.logInfo $ &quot;reached &quot; ++ show s</code></pre>
+</doc-codeblock></div>
+<p>All this is executed with:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&gt; :m Trace
+Prelude Trace&gt; 
+Prelude Trace&gt; :t test
+test :: IO ()
+Prelude Trace&gt; test</code></pre>
+</doc-codeblock></div>
+<p>which results in large amounts of data includying the log lines and final balances:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&lt;...&gt;
+Slot 00002: *** CONTRACT LOG: &quot;made a gift of 10000000 lovelace to 80a4f45b56b88d1139da23bc4c3c75ec6d32943c087f250b86193ca7 with deadline POSIXTime {getPOSIXTime = 1596059111000}&quot;                                                           &lt;...&gt;
+Slot 00022: *** USER LOG: reached Slot {getSlot = 22}
+Slot 00022: *** CONTRACT LOG: &quot;collected gifts&quot;
+&lt;...&gt;
+Final balances
+Wallet 1bc5f27d7b4e20083977418e839e429d00cc87f3: 
+    {, &quot;&quot;}: 100000000
+Wallet 3a4778247ad35117d7c3150d194da389f3148f4a: 
+    {, &quot;&quot;}: 100000000
+Wallet 4e76ce6b3f12c6cc5a6a2545f6770d2bcb360648: 
+    {, &quot;&quot;}: 100000000
+Wallet 5f5a4f5f465580a5500b9a9cede7f4e014a37ea8: 
+    {, &quot;&quot;}: 100000000
+Wallet 7ce812d7a4770bbf58004067665c3a48f28ddd58: 
+    {, &quot;&quot;}: 109995870
+Wallet 872cb83b5ee40eb23bfdab1772660c822a48d491: 
+    {, &quot;&quot;}: 89999990
+Wallet bdf8dbca0cadeb365480c6ec29ec746a2b85274f: 
+    {, &quot;&quot;}: 100000000
+Wallet c19599f22890ced15c6a87222302109e83b78bdf: 
+    {, &quot;&quot;}: 100000000
+Wallet c30efb78b4e272685c1f9f0c93787fd4b6743154: 
+    {, &quot;&quot;}: 100000000
+Wallet d3eddd0d37989746b029a0e050386bc425363901: 
+    {, &quot;&quot;}: 100000000</code></pre>
+</doc-codeblock></div>
 
 
 
