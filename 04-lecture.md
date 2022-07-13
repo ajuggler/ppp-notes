@@ -1,6 +1,6 @@
 ---
 label: Lecture 4
-icon: #file
+icon: file
 author:
   name: Antonio Hernandez
   email: contacto@antoniohernandez.mx
