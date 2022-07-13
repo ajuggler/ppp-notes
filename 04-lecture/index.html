@@ -25,11 +25,11 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.711000265497" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.711003191175" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.711000265497" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.711003191175" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.711000265497" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.711003191175" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -216,10 +216,10 @@
 <li>The Contract Monad</li>
 <li>Homework &amp; Summary</li>
 </ol>
-<doc-anchor-target id="running-emulatortrace">
+<doc-anchor-target id="the-emulatortrace-monad">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#running-emulatortrace">#</doc-anchor-trigger>
-        <span>Running <code v-pre>EmulatorTrace</code></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#the-emulatortrace-monad">#</doc-anchor-trigger>
+        <span>The <code v-pre>EmulatorTrace</code> monad</span>
     </h2>
 </doc-anchor-target>
 <p>Note that <code v-pre>EmulatorConfig</code> implements an instance of the <code v-pre>Default</code> type class:</p>
@@ -245,7 +245,30 @@ instance Default EmulatorConfig
 </doc-codeblock></div>
 <p>with output:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">EmulatorConfig {_initialChainState = Left (fromList [(Wallet 1bc5f27d7b4e20083977418e839e429d00cc87f3,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 3a4778247ad35117d7c3150d194da389f3148f4a,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 4e76ce6b3f12c6cc5a6a2545f6770d2bcb360648,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 5f5a4f5f465580a5500b9a9cede7f4e014a37ea8,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 7ce812d7a4770bbf58004067665c3a48f28ddd58,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet 872cb83b5ee40eb23bfdab1772660c822a48d491,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet bdf8dbca0cadeb365480c6ec29ec746a2b85274f,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet c19599f22890ced15c6a87222302109e83b78bdf,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet c30efb78b4e272685c1f9f0c93787fd4b6743154,Value (Map [(,Map [(&quot;&quot;,100000000)])])),(Wallet d3eddd0d37989746b029a0e050386bc425363901,Value (Map [(,Map [(&quot;&quot;,100000000)])]))]), _slotConfig = SlotConfig {scSlotLength = 1000, scSlotZeroTime = POSIXTime {getPOSIXTime = 1596059091000}}, _feeConfig = FeeConfig {fcConstantFee = Lovelace {getLovelace = 10}, fcScriptsFeeFactor = 1.0}}</code></pre>
+<pre class="language-none"><code v-pre class="language-none">EmulatorConfig {_initialChainState = Left (fromList [(Wallet
+1bc5f27d7b4e20083977418e839e429d00cc87f3,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+3a4778247ad35117d7c3150d194da389f3148f4a,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+4e76ce6b3f12c6cc5a6a2545f6770d2bcb360648,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+5f5a4f5f465580a5500b9a9cede7f4e014a37ea8,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+7ce812d7a4770bbf58004067665c3a48f28ddd58,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+872cb83b5ee40eb23bfdab1772660c822a48d491,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+bdf8dbca0cadeb365480c6ec29ec746a2b85274f,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+c19599f22890ced15c6a87222302109e83b78bdf,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+c30efb78b4e272685c1f9f0c93787fd4b6743154,Value (Map [(,Map
+[(&quot;&quot;,100000000)])])),(Wallet
+d3eddd0d37989746b029a0e050386bc425363901,Value (Map [(,Map
+[(&quot;&quot;,100000000)])]))]), _slotConfig = SlotConfig {scSlotLength =
+1000, scSlotZeroTime = POSIXTime {getPOSIXTime = 1596059091000}},
+_feeConfig = FeeConfig {fcConstantFee = Lovelace {getLovelace =
+10}, fcScriptsFeeFactor = 1.0}}</code></pre>
 </doc-codeblock></div>
 <p>which means that by default we have 10 wallets and other defaults having to do with &#x27;SlotConfig&#x27;, time and fees.</p>
 <p>Since the <code v-pre>EmulatorTrace</code> is a monad, the simplest trace that we can run is tha one that returns <em>unit</em>.  We can try it using <code v-pre>runEmulatorTrace</code>:</p>
