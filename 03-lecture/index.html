@@ -25,11 +25,12 @@
     
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/ppp-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.713905389958" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/ppp-notes/resources/css/retype.css?v=1.11.2.714114551239" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.713905389958" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/ppp-notes/resources/js/config.js?v=1.11.2.714114551239" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/ppp-notes/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.713905389958" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/ppp-notes/resources/js/lunr.js?v=1.11.2.714114551239" defer></script>
+    <script id="prism-js" type="text/javascript" src="/ppp-notes/resources/js/prism.js?v=1.11.2.714114551239" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -207,7 +208,7 @@
     </div>
 </div>
 
-<p><a id="orgc445ba9"></a></p>
+<p><a id="org96019ed"></a></p>
 <doc-anchor-target id="vesting-example">
     <h1>
         <doc-anchor-trigger class="header-anchor-trigger" to="#vesting-example">#</doc-anchor-trigger>
@@ -226,7 +227,7 @@
 <li>Homework</li>
 <li>Summary</li>
 </ol>
-<p><a id="org278cfb6"></a></p>
+<p><a id="org6e24f5e"></a></p>
 <doc-anchor-target id="installing-the-cardano-components-on-macos-catalina">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#installing-the-cardano-components-on-macos-catalina">#</doc-anchor-trigger>
@@ -239,7 +240,7 @@
 <a href="https://github.com/input-output-hk/cardano-node">https://github.com/input-output-hk/cardano-node</a> .</p>
 <p>The following steps worked for me (based and modified from the <em>Installing
 cardano-node</em> <a href="https://developers.cardano.org/docs/get-started/installing-cardano-node/">instructions at developers.cardano.org</a>).</p>
-<p><a id="org4df0f41"></a></p>
+<p><a id="org50b66a8"></a></p>
 <doc-anchor-target id="xcode">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#xcode">#</doc-anchor-trigger>
@@ -249,7 +250,7 @@ cardano-node</em> <a href="https://developers.cardano.org/docs/get-started/insta
 <p>1 - <a href="https://developer.apple.com/xcode/">Downloaded</a> Xcode and the Xcode
 Command Line Tools.  Since my computer runs MacOS Catalina, I downloaded
 version 12.4.  <a href="https://brew.sh/">Homebrew</a> needs to also be installed.</p>
-<p><a id="org097645b"></a></p>
+<p><a id="orgbad44c6"></a></p>
 <doc-anchor-target id="installing-homebrew-packages">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#installing-homebrew-packages">#</doc-anchor-trigger>
@@ -258,7 +259,7 @@ version 12.4.  <a href="https://brew.sh/">Homebrew</a> needs to also be installe
 </doc-anchor-target>
 <p>2 - Installed some libraries with <code v-pre>brew</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">brew install jq
+<pre class="language-bash"><code v-pre class="language-bash">brew install jq
 brew install libtool
 brew install autoconf
 brew install automake
@@ -283,7 +284,7 @@ for further steps.</p>
         </div>
     </div>
 </div>
-<p><a id="org4d06460"></a></p>
+<p><a id="org508ba09"></a></p>
 <doc-anchor-target id="downloading--compiling">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#downloading--compiling">#</doc-anchor-trigger>
@@ -293,13 +294,13 @@ for further steps.</p>
 <p>3 - Created a working directory to store the source-code and build the
 components.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mkdir -p $HOME/cardano-src
+<pre class="language-bash"><code v-pre class="language-bash">mkdir -p $HOME/cardano-src
 cd $HOME/cardano-src</code></pre>
 </doc-codeblock></div>
 <p>4 - Install <code v-pre>libsodium</code></p>
 <p>Next, I downloaded, compiled and installed <code v-pre>libsodium</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">git clone https://github.com/input-output-hk/libsodium
+<pre class="language-bash"><code v-pre class="language-bash">git clone https://github.com/input-output-hk/libsodium
 cd libsodium
 git checkout 66f017f1
 ./autogen.sh
@@ -309,18 +310,18 @@ sudo make install</code></pre>
 </doc-codeblock></div>
 <p>5 - I added the following lines to my bash shell profile <code v-pre>$Home/.bashrc</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">export LD_LIBRARY_PATH=&quot;/usr/local/lib:$LD_LIBRARY_PATH&quot;
+<pre class="language-bash"><code v-pre class="language-bash">export LD_LIBRARY_PATH=&quot;/usr/local/lib:$LD_LIBRARY_PATH&quot;
 export PKG_CONFIG_PATH=&quot;/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH&quot;</code></pre>
 </doc-codeblock></div>
 <p>Reloaded the shell profile with <code v-pre>source $Home/.bashrc</code>.</p>
 <p>6 - Install the <strong>Cardano</strong> components</p>
 <p>Next, I downloaded, compiled and installed <code v-pre>cardano-node</code> and <code v-pre>cardano-cli</code>:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cd $Home/cardano-src</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">cd $Home/cardano-src</code></pre>
 </doc-codeblock></div>
 <p>Downloaded the <code v-pre>cardano-node</code> respository:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">git clone https://github.com/input-output-hk/cardano-node.git
+<pre class="language-bash"><code v-pre class="language-bash">git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 git fetch --all --recurse-submodules --tagsgit clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
@@ -328,29 +329,29 @@ git fetch --all --recurse-submodules --tags</code></pre>
 </doc-codeblock></div>
 <p>Switched the repository to the latest tagged commit:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">git checkout $(curl -s https://api.github.com/repos/input-output-hk/cardano-node/releases/latest | jq -r .tag_name)</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">git checkout $(curl -s https://api.github.com/repos/input-output-hk/cardano-node/releases/latest | jq -r .tag_name)</code></pre>
 </doc-codeblock></div>
 <p>Built the node</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cabal build all</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">cabal build all</code></pre>
 </doc-codeblock></div>
 <p>and installed the newly built node and CLI to <code v-pre>$Home/.local/bin</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mkdir -p $HOME/.local/bin
+<pre class="language-bash"><code v-pre class="language-bash">mkdir -p $HOME/.local/bin
 cp -p &quot;$(./scripts/bin-path.sh cardano-node)&quot; $HOME/.local/bin/
 cp -p &quot;$(./scripts/bin-path.sh cardano-cli)&quot; $HOME/.local/bin/</code></pre>
 </doc-codeblock></div>
 <p>Added the following line to the shell profile <code v-pre>$Home/.bashrc</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">export PATH=&quot;$HOME/.local/bin/:$PATH&quot;</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">export PATH=&quot;$HOME/.local/bin/:$PATH&quot;</code></pre>
 </doc-codeblock></div>
 <p>and reloaded with <code v-pre>source $Home/.bashrc</code>.</p>
 <p>To verfiy all is OK, checked versions installed:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cardano-cli --version
+<pre class="language-bash"><code v-pre class="language-bash">cardano-cli --version
 cardano-node --version</code></pre>
 </doc-codeblock></div>
-<p><a id="org8825f91"></a></p>
+<p><a id="orgb8c4cda"></a></p>
 <doc-anchor-target id="running-cardano-node-with-external-hard-drive">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#running-cardano-node-with-external-hard-drive">#</doc-anchor-trigger>
@@ -370,7 +371,7 @@ contains the <a href="https://hydra.iohk.io/build/8111119/download/1/index.html"
 <p>The script <code v-pre>start-node-testnet.sh</code> runs <code v-pre>cardano-node</code> with the following
 configuration:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cardano-node run \
+<pre class="language-bash"><code v-pre class="language-bash">cardano-node run \
  --topology testnet-topology.json \
  --database-path db \
  --socket-path node.socket \
@@ -385,39 +386,55 @@ sit inside directory <code v-pre>cardano</code> at the root of an external hard 
 <em>External-Hard-Drive</em>.  Remembering that the active directory on our shell is
 still <code v-pre>testnet</code>, we execute</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mkdir -p /Volume/External-Hard-Drive/cardano/db
+<pre class="language-bash"><code v-pre class="language-bash">mkdir -p /Volume/External-Hard-Drive/cardano/db
 ln -s /Volume/External-Hard-Drive/cardano/db .</code></pre>
 </doc-codeblock></div>
 <p>After the symbolic link was created, I started the Cardano node with</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">./start-node-testnet.sh</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">./start-node-testnet.sh</code></pre>
 </doc-codeblock></div>
 <p>My MacBook took several hours to sync the testnet.</p>
-<p><a id="org2cc2f1f"></a></p>
+<p><a id="org77eeba4"></a></p>
 <doc-anchor-target id="wallets-initialization">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#wallets-initialization">#</doc-anchor-trigger>
         <span>Wallets initialization</span>
     </h2>
 </doc-anchor-target>
+<p><a id="org6bf9d58"></a></p>
+<doc-anchor-target id="key-pairs--addresses">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#key-pairs--addresses">#</doc-anchor-trigger>
+        <span>Key pairs &amp; addresses</span>
+    </h3>
+</doc-anchor-target>
 <p>Created two key pairs</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cardano-cli address key-gen --verification-key-file 01.vkey --signing-key-file 01.skey
-[nix-shell]$ cardano-cli address key-gen --verification-key-file 02.vkey --signing-key-file 02.skey</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli address key-gen --verification-key-file 01.vkey --signing-key-file 01.skey
+[bash]$ cardano-cli address key-gen --verification-key-file 02.vkey --signing-key-file 02.skey</code></pre>
 </doc-codeblock></div>
 <p>and their corresponding wallet addresses:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cardano-cli address build --payment-verification-key-file 01.vkey --testnet-magic 1097911063 --out-file 01.addr
-[nix-shell]$ cardano-cli address build --payment-verification-key-file 02.vkey --testnet-magic 1097911063 --out-file 02.addr
-
-[nix-shell]$ ls 01.*
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli address build --payment-verification-key-file 01.vkey --testnet-magic 1097911063 --out-file 01.addr
+[bash]$ cardano-cli address build --payment-verification-key-file 02.vkey --testnet-magic 1097911063 --out-file 02.addr</code></pre>
+</doc-codeblock></div>
+<p>We verify that the .skey, .vkey and .addr files are there:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ ls 01.*
 01.addr 01.skey 01.vkey
-[nix-shell]$ ls 02.*
+[bash]$ ls 02.*
 02.addr 02.skey 02.vkey</code></pre>
 </doc-codeblock></div>
+<p><a id="orgac044b6"></a></p>
+<doc-anchor-target id="funding-the-wallets">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#funding-the-wallets">#</doc-anchor-trigger>
+        <span>Funding the wallets</span>
+    </h3>
+</doc-anchor-target>
 <p><a href="https://testnets.cardano.org/en/testnets/cardano/tools/faucet/">Funded</a> wallet 1 (1000 Ada) and then transferred 10 Ada to wallet 2:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">cardano-cli transaction build \
+<pre class="language-bash"><code v-pre class="language-bash">cardano-cli transaction build \
     --alonzo-era \
     --testnet-magic 1097911063 \
     --change-address $(cat 01.addr) \
@@ -435,14 +452,21 @@ cardano-cli transaction submit \
     --testnet-magic 1097911063 \
     --tx-file tx.signed</code></pre>
 </doc-codeblock></div>
+<p><a id="org0a1dc55"></a></p>
+<doc-anchor-target id="public-key-hash">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#public-key-hash">#</doc-anchor-trigger>
+        <span>Public key hash</span>
+    </h3>
+</doc-anchor-target>
 <p>We will also need the public key hash of wallet 2:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cardano-cli address key-hash --payment-verification-key-file 02.vkey --out-file 02.pkh 
-[nix-shell]$ 
-[nix-shell]$ echo $(cat 02.pkh)
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli address key-hash --payment-verification-key-file 02.vkey --out-file 02.pkh 
+[bash]$ 
+[bash]$ echo $(cat 02.pkh)
 a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </doc-codeblock></div>
-<p><a id="orgd5d7318"></a></p>
+<p><a id="org066063a"></a></p>
 <doc-anchor-target id="script-context">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#script-context">#</doc-anchor-trigger>
@@ -463,7 +487,7 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </ul>
 <p>The datatype <code v-pre>TxInfo</code> describes the actual context.  In particular, it has fields for the list of all inputs and the list of all outputs of the Tx.  It also has a field for the datum of the UTxOs being spent by the Tx, namely  <code v-pre>txInfoData :: [(DatumHash, Datum)]</code> ,  which can be viewed as a dictionary from hashes of datum to actual datum.</p>
 <p>Recall that a spending Tx script must include the datum of the UTxO that is being spent, whereas scripts that send money to such UTxO only had to include the datum hash.  Spending Tx&#x27;s have to include the datum of the inputs they spend, oand producing Tx&#x27;s opttionally can include the datum..</p>
-<p><a id="org37be854"></a></p>
+<p><a id="org8293ec5"></a></p>
 <doc-anchor-target id="vesting-contract-vestinghs">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#vesting-contract-vestinghs">#</doc-anchor-trigger>
@@ -472,7 +496,7 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </doc-anchor-target>
 <p>In the vesting example, the validator function</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mkValidator :: VestingDatum -&gt; () -&gt; ScriptContext -&gt; Bool</code></pre>
+<pre class="language-haskell"><code v-pre class="language-haskell">mkValidator :: VestingDatum -&gt; () -&gt; ScriptContext -&gt; Bool</code></pre>
 </doc-codeblock></div>
 <p>checks that</p>
 <ul>
@@ -494,7 +518,7 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </ul>
 <p>(with the constraint that  <code v-pre>e</code>  belongs to class  <code v-pre>AsContractError</code> ).</p>
 <p><strong>Optional exercise</strong>:  remove the checks in the off-chain code to allow for the validator to reject transactions that do not satisfy the requirements.</p>
-<p><a id="orgce2f732"></a></p>
+<p><a id="org21b0538"></a></p>
 <doc-anchor-target id="parameterized-version-parameterizedhs">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#parameterized-version-parameterizedhs">#</doc-anchor-trigger>
@@ -503,7 +527,7 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </doc-anchor-target>
 <p>Allows the plutus core validator to have parameters, instead of being a (compile time) constant.</p>
 <p>It turns out that there is a way of compiling to Plutus Core the parameter at run-time using <code v-pre>liftCode</code>.</p>
-<p><a id="org32a1bf8"></a></p>
+<p><a id="org7715bee"></a></p>
 <doc-anchor-target id="serialization-deployhs">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#serialization-deployhs">#</doc-anchor-trigger>
@@ -513,45 +537,57 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 <p>The <code v-pre>Cardano.Api</code> library has its own Data type, which is very similar to the Plutus Data type, but is a different type called <code v-pre>ScriptData</code>.</p>
 <p>• The function</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">dataToScriptData :: Data -&gt; ScriptData</code></pre>
+<pre class="language-haskell"><code v-pre class="language-haskell">dataToScriptData :: Data -&gt; ScriptData</code></pre>
 </doc-codeblock></div>
 <p>converts from Plutus Data to the <code v-pre>Cardano.Api</code> Script Data.</p>
 <p>• The helper function</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">writeJSON :: PlutusTx.ToData a =&gt; FilePath -&gt; a -&gt; IO ()</code></pre>
+<pre class="language-haskell"><code v-pre class="language-haskell">writeJSON :: PlutusTx.ToData a =&gt; FilePath -&gt; a -&gt; IO ()</code></pre>
 </doc-codeblock></div>
 <p>serializes a value  <code v-pre>a</code> ,  which is assumed to be in class <code v-pre>ToData</code> (a typeclass for types that can be converted to and from BuiltinData), to a file in JSON format.</p>
 <p>For example, unit is encoded in JSON as</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ echo $(cat unit.json)
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ echo $(cat unit.json)
 {&quot;constructor&quot;:0,&quot;fields&quot;:[]}</code></pre>
 </doc-codeblock></div>
 <p>• The helper function, which uses several functionalities from the <code v-pre>Cardano.Api</code>,</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">writeValidator :: FilePath -&gt; Ledger.Validator -&gt; IO (Either (FileError ()) ())</code></pre>
+<pre class="language-haskell"><code v-pre class="language-haskell">writeValidator :: FilePath -&gt; Ledger.Validator -&gt; IO (Either (FileError ()) ())</code></pre>
 </doc-codeblock></div>
 <p>converts a Plutus validator into a script and writes it into a file.</p>
 <p>• The function</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">writeVestingValidator :: IO (Either (FileError ()) ())</code></pre>
+<pre class="language-haskell"><code v-pre class="language-haskell">writeVestingValidator :: IO (Either (FileError ()) ())</code></pre>
 </doc-codeblock></div>
 <p>applies  <code v-pre>writeValidator &lt;file&gt;</code>  to the  <code v-pre>validator</code>  defined in <code v-pre>Parameterized.hs</code>, which in turn takes the parameters in  <code v-pre>VestingParams</code> .</p>
 <p>In the parameters, the beneficiaty is just the <code v-pre>PaymentPubKeyHash</code> of address of wallet 2.  Address of wallet 2 was recovered with</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cardano-cli address key-hash --payment-verification-key-file 02.vkey
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli address key-hash --payment-verification-key-file 02.vkey
 a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </doc-codeblock></div>
 <p>The other field in the parameters that we need is the deadline, and for that we used the <a href="https://epochconverter.com">Epoch Converter</a>.</p>
 <p>Function  <code v-pre>writeVestingValidator</code>  wrote the script into the file <code v-pre>vesting.plutus</code>.  If we peek into this file we get</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cat vesting.plutus
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cat vesting.plutus
 {
     &quot;type&quot;: &quot;PlutusScriptV1&quot;,
     &quot;description&quot;: &quot;&quot;,
     &quot;cborHex&quot;: &quot;&lt;long string of serialized data&gt;&quot;
 }</code></pre>
 </doc-codeblock></div>
-<p><a id="org45d3008"></a></p>
+<p>• The script address is built with</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli address build-script \
+                    --script-file vesting.plutus \
+                    --testnet-magic 1097911063 \
+                    --out-file vesting.addr</code></pre>
+</doc-codeblock></div>
+<p>which produces the scriipt-address</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ echo $(cat vesting.addr)
+addr_test1wz8e3q428ghj9a2dddf2sjpvt2a5kcw702ts2vl78rfqewq6xhe5t</code></pre>
+</doc-codeblock></div>
+<p><a id="orgcc2a6b9"></a></p>
 <doc-anchor-target id="implementing-the-endpoints">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#implementing-the-endpoints">#</doc-anchor-trigger>
@@ -560,39 +596,40 @@ a70db004b632525adeb7e30c64285da8bf81ee9a2946291502c0cae5</code></pre>
 </doc-anchor-target>
 <p>We now want to implement the &quot;<code v-pre>give</code>&quot; and &quot;<code v-pre>grab</code>&quot; endpoints using the cardano-cli.</p>
 <ol>
-<li><p>Script address</p>
-<p>We frst need to build the script address of script <code v-pre>vesting.plutus</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cardano-cli address build-script --script-file vesting.plutus --testnet-magic 1097911063 --out-file vesting.addr</code></pre>
-</doc-codeblock></div>
-<p>which produced the script-address</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ echo $(cat vesting.addr)
-addr_test1wzpsa88v8trjasq4n92ntzg3g04qmcjqu6fhjvr62t5qshqpvhjvh</code></pre>
-</doc-codeblock></div>
-</li>
 <li><p>Implementing <code v-pre>give</code></p>
-<p>Wrote a script that builds signs and submits tthe transaction implementing &quot;give&quot;:</p>
+<p>• Build:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cat give.sh
-cardano-cli transaction build \
-    --alonzo-era \
-    --testnet-magic 1097911063 \
-    --change-address $(cat 01.addr) \
-    --tx-in $(cat utxo1.tmp) \
-    --tx-out &quot;$(cat vesting.addr) 200000000 lovelace&quot; \
-    --tx-out-datum-hash-file unit.json \
-    --out-file tx.body
-
-cardano-cli transaction sign \
-    --tx-body-file tx.body \
-    --signing-key-file 01.skey \
-    --testnet-magic 1097911063 \
-    --out-file tx.signed
-
-cardano-cli transaction submit \
-    --testnet-magic 1097911063 \
-    --tx-file tx.signed</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction build \
+                    --babbage-era \
+                    --testnet-magic 1097911063 \
+                    --change-address $(cat 01.addr) \
+                    --tx-in $(cat utxo1.tmp) \
+                    --tx-out &quot;$(cat vesting.addr) 200000000 lovelace&quot; \
+                    --tx-out-datum-hash-file unit.json \
+                    --out-file tx.body
+Estimated transaction fee: Lovelace 167349</code></pre>
+</doc-codeblock></div>
+<p>• Sign:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction sign \
+                    --tx-body-file tx.body \
+                    --signing-key-file 01.skey \
+                    --testnet-magic 1097911063 \
+                    --out-file tx.signed</code></pre>
+</doc-codeblock></div>
+<p>• Submit:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction submit \
+                    --testnet-magic 1097911063 \
+                    --tx-file tx.signed
+Transaction successfully submitted.</code></pre>
+</doc-codeblock></div>
+<p>• We verify that the script has received the gift:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli query utxo --address $(cat vesting.addr) --testnet-magic 1097911063         
+                           TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+22bbf04e1a9ac1e757e30ecdf98e2cec364a68905cee90fb11d0061abf7f9989     1        200000000 lovelace + TxOutDatumHash ScriptDataInBabbageEra &quot;923918e403bf43c34b4ef6b48eb2ee04babed17320d8d1b9ff9ad086e86f44ec&quot;</code></pre>
 </doc-codeblock></div>
 <p>Notes:</p>
 <ul>
@@ -601,45 +638,57 @@ cardano-cli transaction submit \
 <li>The hash of the serialization-as-JSON of the datum has been included.</li>
 </ul>
 </li>
-</ol>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ ./give.sh
-Estimated transaction fee: Lovelace 167041
-Transaction successfully submitted.
-[nix-shell]$ 
-[nix-shell]$ cardano-cli query utxo --address $(cat vesting.addr) --testnet-magic 1097911063         
-			   TxHash                                 TxIx        Amount
---------------------------------------------------------------------------------------
-195fd5d43283956b194d678685fe000916ad9d66bd3f59362bcfbccf1b9b95b1     1        200000000 lovelace + TxOutDatumHash ScriptDataInBabbageEra &quot;923918e403bf43c34b4ef6b48eb2ee04babed17320d8d1b9ff9ad086e86f44ec&quot;</code></pre>
-</doc-codeblock></div>
-<ol start="3">
 <li><p>Implementing <code v-pre>grab</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">[nix-shell]$ cat grab.sh
-cardano-cli transaction build \
-    --alonzo-era \
-    --testnet-magic 1097911063 \
-    --change-address $(cat 02.addr) \
-    --tx-in $(cat utxoSc.tmp) \
-    --tx-in-script-file vesting.plutus \
-    --tx-in-datum-file unit.json \
-    --tx-in-redeemer-file unit.json \
-    --tx-in-collateral $(cat utxo2.tmp) \
-    --required-signer-hash $(cat 02.pkh) \
-    --invalid-before 66206266 \
-    --protocol-params-file protocol.json \
-    --out-file tx.body
-
-cardano-cli transaction sign \
-    --tx-body-file tx.body \
-    --signing-key-file 02.skey \
-    --testnet-magic 1097911063 \
-    --out-file tx.signed
-
-cardano-cli transaction submit \
-    --testnet-magic 1097911063 \
-    --tx-file tx.signed</code></pre>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction build \
+                    --babbage-era \
+                    --testnet-magic 1097911063 \
+                    --change-address $(cat 02.addr) \
+                    --tx-in $(cat utxoSc.tmp) \
+                    --tx-in-script-file vesting.plutus \
+                    --tx-in-datum-file unit.json \
+                    --tx-in-redeemer-file unit.json \
+                    --tx-in-collateral $(cat utxo2.tmp) \
+                    --required-signer-hash $(cat 02.pkh) \
+                    --invalid-before 66260428 \
+                    --protocol-params-file protocol2.json \
+                    --out-file tx.body
+Estimated transaction fee: Lovelace 361001</code></pre>
 </doc-codeblock></div>
+<p>So no errors.  This is strange, as the deadline has not been reached.  Questions:</p>
+<ul>
+<li>Is the  <code v-pre>txInfoValidRange</code>  determined by the option in  &quot;<code v-pre>--invalid-before</code>&quot; ?</li>
+<li>In this case, success is an error.  How can this error be isolated to better know what went &quot;well&quot;, i.e., wrong?</li>
+</ul>
+<p>In any case, we proceeded to sign and submit:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction sign \
+                    --tx-body-file tx.body \
+                    --signing-key-file 02.skey \
+                    --testnet-magic 1097911063 \
+                    --out-file tx.signed</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli transaction submit \
+                    --testnet-magic 1097911063 \
+                    --tx-file tx.signed
+Transaction successfully submitted.
+[bash]$ </code></pre>
+</doc-codeblock></div>
+<p>Now we verify that the funds are gone from the script address:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli query utxo --address $(cat vesting.addr) --testnet-magic 1097911063                           
+                           TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------</code></pre>
+</doc-codeblock></div>
+<p>And now sit at wallet 2&#x27;s address:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">[bash]$ cardano-cli query utxo --address $(cat 02.addr) --testnet-magic 1097911063                               TxHash                                 TxIx        Amount
+--------------------------------------------------------------------------------------
+56071f9651704cc34f7423605d5f83c37ce475022d7c7bdb09290903854a9af6     1        10000000 lovelace + TxOutDatumNone
+b6b4f467cbb0e456e6566477988b4543069b427ee509603de0f99e41508563b7     0        199638999 lovelace + TxOutDatumNone</code></pre>
+</doc-codeblock></div>
+<p>The second UTxO contains the 200 Ada minus fees.</p>
 </li>
 </ol>
 
@@ -713,6 +762,6 @@ cardano-cli transaction submit \
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Lecture 3", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+        <script>window.__DOCS__ = { "title": "Lecture 3", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
     </body>
 </html>
